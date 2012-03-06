@@ -1,6 +1,7 @@
 package de.akquinet.android.stand.activities;
 
 import android.widget.TextView;
+import de.akquinet.android.androlog.Log;
 import de.akquinet.android.roboject.RobojectActivity;
 import de.akquinet.android.roboject.annotations.InjectExtra;
 import de.akquinet.android.roboject.annotations.InjectLayout;
@@ -33,5 +34,6 @@ public class ResultActivity extends RobojectActivity {
     public void onReady() {
         super.onReady();
         addResultText.setText(String.valueOf(result));
+        Log.i("Displayed result " + result + " to user");
     }
 }

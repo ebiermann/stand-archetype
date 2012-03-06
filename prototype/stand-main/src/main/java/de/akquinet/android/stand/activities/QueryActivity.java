@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import de.akquinet.android.androlog.Log;
 import de.akquinet.android.roboject.RobojectActivity;
 import de.akquinet.android.roboject.annotations.InjectLayout;
 import de.akquinet.android.roboject.annotations.InjectView;
@@ -30,6 +31,8 @@ public class QueryActivity extends RobojectActivity {
                     intent.setClass(getApplicationContext(), ResultActivity.class);
                     intent.putExtra("number1", number1);
                     intent.putExtra("number2", number2);
+                    
+                    Log.i("Starting activity ResultActivity");
                     startActivity(intent);
                 } catch (NumberFormatException e) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Please enter two integer values", 3);

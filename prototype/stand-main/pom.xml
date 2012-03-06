@@ -25,6 +25,11 @@
             <artifactId>marvin</artifactId>
             <version>1.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>de.akquinet.android.androlog</groupId>
+            <artifactId>androlog</artifactId>
+            <version>1.0.3</version>
+        </dependency>
     </dependencies>
 
     <build>
