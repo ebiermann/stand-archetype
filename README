@@ -1,0 +1,13 @@
+Archetype installation:
+1. Run 'mvn clean install'
+
+
+StAnd quickstart/archetype usage:
+1. Create a new project with 
+mvn archetype:generate \
+  -DarchetypeGroupId=de.akquinet.android.archetypes\ 
+  -DarchetypeArtifactId=stand-archetype 
+  -DarchetypeVersion=0.0.1\
+  -DgroupId=mygroupid\
+  -DartifactId=myproject\
+  -Dversion=1.0.0-SNAPSHOT
