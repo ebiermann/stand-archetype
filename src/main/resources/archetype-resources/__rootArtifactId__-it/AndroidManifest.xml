@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="${package}.test" android:versionCode="1" android:versionName="${version}">
+  package="${package}" android:versionCode="1" android:versionName="${version}">
 
-  <application android:icon="@drawable/icon" android:label="@string/app_name">
-    <uses-library android:name="android.test.runner" />
-  </application>
+    <application android:label="Tests" android:debuggable="true">
+        <uses-library android:name="android.test.runner" />
+    </application>
 
-  <instrumentation android:targetPackage="${package}"
-    android:name="android.test.InstrumentationTestRunner" />
+    <instrumentation android:targetPackage="${package}"
+        android:name="android.test.InstrumentationTestRunner" />
 
 </manifest>
-

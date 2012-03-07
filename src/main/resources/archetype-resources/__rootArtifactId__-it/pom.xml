@@ -1,58 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <properties>
-        <version>0.0.1</version>
-        <rootArtifactId>${artifactId}-parent</rootArtifactId>
-    </properties>
 
     <parent>
         <groupId>${groupId}</groupId>
-        <artifactId>${artifactId}-parent</artifactId>
-        <!--<artifactId>${rootArtifactId}-parent</artifactId>-->
+        <artifactId>${rootArtifactId}-parent</artifactId>
         <version>${version}</version>
     </parent>
 
     <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}-it</artifactId>
+    <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>apk</packaging>
-    <name>${artifactId} - Integration tests</name>
+    <name>${artifactId} - Integration Tests</name>
 
     <dependencies>
         <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android-test</artifactId>
-        </dependency>
-        <dependency>
             <groupId>${groupId}</groupId>
-            <artifactId>${artifactId}-parent</artifactId>
-            <!--<artifactId>${rootArtifactId}</artifactId>-->
+            <artifactId>${rootArtifactId}</artifactId>
             <type>apk</type>
             <version>${version}</version>
         </dependency>
         <dependency>
             <groupId>${groupId}</groupId>
-            <artifactId>${artifactId}-parent</artifactId>
-            <!--<artifactId>${rootArtifactId}</artifactId>-->
+            <artifactId>${rootArtifactId}</artifactId>
             <type>jar</type>
             <version>${version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>de.akquinet.android.marvin</groupId>
+            <artifactId>marvin</artifactId>
         </dependency>
         <dependency>
-            <groupId>de.akquinet.android.roboject/groupId>
-            <artifactId>r</artifactId>
+            <groupId>de.akquinet.android.roboject</groupId>
+            <artifactId>roboject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3.RC2</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -66,21 +56,10 @@
                     <sdk>
                         <platform>${platform}</platform>
                     </sdk>
-                    #if(${emulator} != "not-specified")
-                    <emulator>
-                        <avd>${emulator}</avd>
-                    </emulator>
-                    #end
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                    <extractDuplicates>true</extractDuplicates>
                 </configuration>
                 <extensions>true</extensions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
             </plugin>
         </plugins>
     </build>
