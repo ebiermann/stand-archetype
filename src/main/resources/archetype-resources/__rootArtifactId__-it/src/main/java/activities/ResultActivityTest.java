@@ -20,6 +20,11 @@ public class ResultActivityTest extends AndroidTestCase {
         ResultActivity activity = (ResultActivity) perform().startActivity(intent);
 
         assertThat(activity, is(not(nullValue())));
-        await().condition(activity.result, is(89L), 15, SECONDS);
+        await().condition(new de.akquinet.android.marvin.matchers.Condition("Wait for result") {
+            @Override
+            public boolean matches() {
+                return activity.result == 89;
+            }
+        }, 15, SECONDS);
     }
 }
