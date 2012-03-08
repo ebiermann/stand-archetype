@@ -17,7 +17,7 @@ public class ResultActivityTest extends AndroidTestCase {
         intent.putExtra("number1", 42);
         intent.putExtra("number2", 47);
 
-        ResultActivity activity = (ResultActivity) perform().startActivity(intent);
+        final ResultActivity activity = (ResultActivity) perform().startActivity(intent);
 
         assertThat(activity, is(not(nullValue())));
         await().condition(new de.akquinet.android.marvin.matchers.Condition("Wait for result") {
